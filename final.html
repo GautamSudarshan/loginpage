@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+  <title>FRITZ!Box</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #wrapper {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #content_head {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .message {
+      font-size: 18px;
+      color: #7f8c8d;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .message strong {
+      color: #e74c3c;
+    }
+
+    .status {
+      font-size: 16px;
+      color: #3498db;
+      margin-top: 20px;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 16px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    /* Animation */
+    .status {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      #wrapper {
+        padding: 15px;
+      }
+
+      #content_head {
+        font-size: 20px;
+      }
+
+      .message {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="content">
+      <div id="content_head">Firmware Update</div>
+      <div class="message">Please wait a moment!</div>
+      <div class="message"><strong>Establishing connection...</strong></div>
+      <div class="status">This may take a few moments.</div>
+      <div class="error-message">If this takes too long, please try again.</div>
+    </div>
+  </div>
+</body>
+</html>

